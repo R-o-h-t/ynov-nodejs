@@ -11,7 +11,6 @@ export const checkToken = (req, res, next) => {
                     res.locals.authenticated = true;
                     next();
                 } else {
-                    console.log(payload);
                     console.log("AUTH.MIDDLEWARE : token is invalid");
                     next(new AppError("Invalid token", 401));
                 }

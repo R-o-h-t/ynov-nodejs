@@ -49,8 +49,12 @@ export async function verifyToken(token) {
         if (payloadObj.exp < Date.now()) {
             return payloadObj;
         }
-        console.log("token is expired");
+        console.log("AUTH.VERIFY_TOKEN : token is expired");
+        return null;
     }
+    console.log(
+        `AUTH.VERIFY_TOKEN : signature is incorrect got ${signature} expected ${expectedSignature}`
+    );
     return null;
 }
 
