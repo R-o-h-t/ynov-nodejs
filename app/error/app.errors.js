@@ -15,9 +15,9 @@ class AppError {
 
 const catchError = (error, _req, res, _next) => {
     if (error instanceof AppError) {
-        res.status(error.status).send(error.details);
+        res.send(error.details, error.status);
     } else {
-        res.status(500).send(error.message);
+        res.send(error.message, 500);
     }
 };
 

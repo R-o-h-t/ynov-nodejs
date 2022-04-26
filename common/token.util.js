@@ -44,7 +44,9 @@ export async function verifyToken(token) {
     const headerJSON = await decode(header);
     const payloadJSON = await decode(payload);
     const payloadObj = JSON.parse(payloadJSON);
-    const expectedSignature = await sign(`${headerJSON}.${payloadJSON}`);
+    const headerEncoded = await hash.encode(JSON.stringify(headerJSON));
+    const payloadEncoded = await hash.encode(JSON.stringify(payloadJSON));
+    const expectedSignature = await sign(`${headerEncoded}.${payloadEncoded}`);
     if (expectedSignature === signature) {
         if (payloadObj.exp < Date.now()) {
             return payloadObj;
