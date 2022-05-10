@@ -1,4 +1,4 @@
-import hash from "../../common/token.util.js";
+import hash from "../common/token.util.js";
 import { AppError } from "../error/app.errors.js";
 import { UserModel } from "./user.model.js";
 const Model = UserModel;

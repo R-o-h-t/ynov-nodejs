@@ -3,7 +3,7 @@ import { AppError } from "../error/app.errors.js";
 
 const register = (_req, res, next) => {
     console.log(
-        `AUTH.CONTROLLER : register user with credentials         ${res.locals.username}, ${res.locals.email}, ${res.locals.role}, ${res.locals.date}`
+        `AUTH.CONTROLLER : register user with credentials ${res.locals.username}, ${res.locals.email}, ${res.locals.role}, ${res.locals.date}`
     );
     userService
         .create(

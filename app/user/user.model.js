@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from "../../common/orm.config.js ";
-import hash from "../../common/token.util.js";
+import sequelize from "../common/orm.config.js ";
+import hash from "../common/token.util.js";
 import moment from "moment";
 export class UserModel extends Model {
     async generateAuthToken() {
