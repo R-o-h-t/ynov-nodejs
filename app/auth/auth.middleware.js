@@ -1,5 +1,5 @@
 import { AppError } from "../error/app.errors.js";
-import hash from "../../common/token.util.js";
+import hash from "../common/token.util.js";
 
 export const checkToken = (req, res, next) => {
     if (req.headers.authorization) {
@@ -19,6 +19,9 @@ export const checkToken = (req, res, next) => {
             console.log("AUTH.MIDDLEWARE : token is missing");
             next(new AppError("Missing token", 401));
         }
+    } else {
+        console.log("AUTH.MIDDLEWARE : token is missing");
+        next(new AppError("Missing token", 401));
     }
 };
 

@@ -55,8 +55,8 @@ const checkGetParams = (req, res, next) => {
 
     if (team1 && typeof team1 != "string") errors.push("team1 is not a string");
     if (team2 && typeof team1 != "string") errors.push("team1 is not a string");
-    if (page != parseInt(page)) errors.push("page is not an integer");
-    if (size != parseInt(size)) errors.push("size is not an integer");
+    if (page && page != parseInt(page)) errors.push("page is not an integer");
+    if (size && size != parseInt(size)) errors.push("size is not an integer");
     if (order && order !== "asc" && order !== "des")
         errors.push("order must be asc or des");
     console.log("errors", errors);

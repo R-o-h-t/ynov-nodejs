@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import sequelize from "../../common/orm.config.js ";
+import sequelize from "../common/orm.config.js";
 import moment from "moment";
 export class MatchModel extends Model {}
 MatchModel.init({
