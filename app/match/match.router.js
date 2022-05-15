@@ -29,7 +29,7 @@ matchRouter.patch(
     checkToken,
     checkRoles(["admin", "user"]), //
     checkId,
-    checkParams(true),
+    checkParams(false),
     controller.update
 );
 matchRouter.delete(

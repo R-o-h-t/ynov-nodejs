@@ -28,12 +28,17 @@ const checkParams =
         if (d && !score) errors.push("score is undefined");
         if (team1 && typeof team1 != "string") errors.push("team1 is not a string");
         if (team2 && typeof team1 != "string") errors.push("team1 is not a string");
-        if (score.match("^d+-d+$")) errors.push("score must be like int-int");
+        if (score && typeof score != "string") errors.push("score is not a string");
+        else {
+            if (score && !score.match("^\\d+-\\d+$"))
+                errors.push("score must be like int-int");
+        }
+
         if (date && isNaN(new Date(date).valueOf()))
             errors.push("date is not a date");
 
         if (errors.length > 0) {
-            next(new AppError(404, errors.join(", ")));
+            next(new AppError(400, errors.join(", ")));
         } else {
             res.locals.team1 = team1;
             res.locals.team2 = team2;

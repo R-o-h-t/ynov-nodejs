@@ -28,7 +28,9 @@ const getAll = (_req, res, next) => {
     if (team2) where.team2 = team2;
 
     service.getAll(where, order, size, page * size).then(
-        (items) => res.header("total-count", items.total).send(items.data),
+        (items) => {
+            res.header("total-count", items.total).send(items.data);
+        },
         (e) => {
             if (e instanceof AppError) next(e);
             else next(new AppError(500, "Internal Server Error"));

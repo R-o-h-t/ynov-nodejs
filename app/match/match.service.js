@@ -44,7 +44,9 @@ const update = async(id, team1, team2, score, date) => {
     console.log(
         `MATCH.SERVICE : updating match id:${id} with params ${team1}, ${team2}, ${score}, ${date}`
     );
-    let item = getOne(id);
+    let item = await getOne(id).catch((e) => {
+        throw e;
+    });
     if (team1) item.team1 = team1;
     if (team2) item.team2 = team2;
     if (score) item.score = score;
